@@ -14,8 +14,11 @@ A RESTful API built with Express.js and MongoDB Atlas that analyzes strings and 
 ```bash
 npm install
 ```
-3. Create a `.env` file using `.env.example` as a guide
-4. Start the server:
+3. Create a `.env` file with the following variiables
+   PORT=4000
+   MONGO_URI=mongodb+srv://(username):(password)@cluster.mongodb.net/string-analyzer
+   Note: replace (username) with your mongoDB username and (password) with your dataBase password.
+5. Start the server:
 ```bash
 node index.js
 ```
@@ -29,3 +32,5 @@ node index.js
 - `GET /strings/filter-by-natural-language?query=` — Natural language filtering
 
 Example query: `all single word palindromic strings`
+
+

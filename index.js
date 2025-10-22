@@ -8,8 +8,8 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// Connect to MongoDB
-// connectDB();
+
+
 
 // Routes
 app.use("/strings", stringRoutes);
@@ -17,5 +17,16 @@ app.use("/strings", stringRoutes);
 // Error handler
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+const start = async (PORT) => {
+
+    // connect to DB
+    await connectDB();
+    console.log("DB connected");
+
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
+
+start(process.env.PORT || 4000);
